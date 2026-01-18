@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tehalos Yisroel</title>
+    <title>Tehilos Yisroel</title>
     <style>
+/* Navigation ribbon */
+.nav-bar {
+    width: 100%;
+    background: #1a1a1a;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-bar a:hover {
+    color: #cccccc;
+}
         body@font-face {
   font-family: 'BaTzelotana';
-  src: url('BaTzelotana.ttf') format('truetype');
+  src: url('BaTzelotana=bold.ttf') format('truetype');
 }
 
 .title {
@@ -28,7 +52,7 @@
         .banner {
             width: 100%;
             height: 33vh;
-            background-image: url('img10.jpg'); /* replace with your actual file name */
+            background-image: url('../img10.jpg'); /* replace with your actual file name */
             background-size: cover;
             background-position: center;
         }
@@ -94,8 +118,11 @@
     </style>
 </head>
 <body>
-
 <div class="banner"></div>
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="../donate/index.html">Donations</a>
+</nav>
 
 <div class="title">תהלות ישראל</div>
 
