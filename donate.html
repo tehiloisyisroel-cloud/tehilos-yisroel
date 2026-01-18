@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate – Tehilos Yisroel</title>
+    <style>
+        /* Navigation ribbon */
+.nav-bar {
+    width: 100%;
+    background: #1a1a1a;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-bar a:hover {
+    color: #cccccc;
+}
+        /* Full-width banner (top third) */
+        .banner {
+            width: 100%;
+            height: auto;
+            background-image: url('../img10.jpg'); /* replace with your actual file name */
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+         footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #222;
+        }
+        .donation-buttons button {
+            padding: 12px 20px;
+            margin: 8px;
+            border: none;
+            border-radius: 6px;
+            background: #3a6ea5;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .donation-buttons button:hover {
+            background: #2f5a87;
+        }
+        .custom-amount {
+            margin-top: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 150px;
+            font-size: 16px;
+        }
+        .donate-now {
+            margin-top: 20px;
+        }
+        .donate-now button {
+            padding: 14px 28px;
+            background: #28a745;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .donate-now button:hover {
+            background: #218838;
+        }
+        .policy-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+<div class="banner"></div>
+<nav class="nav-bar">
+    <a href="index.html">Home</a>
+   
+</nav>
+
+
+<div class="container">
+
+    <h1>Support Tehilos Yisroel</h1>
+    <p>Your donation helps sustain our kehilla, our tefillos, our learning, and the warm community we are building together.</p>
+
+    <h2>Choose a Donation Amount</h2>
+
+    <div class="donation-buttons">
+        <button onclick="setAmount(18)">€18</button>
+        <button onclick="setAmount(36)">€36</button>
+        <button onclick="setAmount(72)">€72</button>
+        <button onclick="setAmount(180)">€180</button>
+        <button onclick="setAmount(360)">€360</button>
+        <button onclick="setAmount(500)">€500</button>
+    </div>
+
+    <div class="custom-amount">
+        <label>Or enter a custom amount:</label><br>
+        <input type="number" id="customAmount" min="1" placeholder="€">
+    </div>
+
+    <div class="donate-now">
+        <!-- Replace the link below with your Stripe Checkout link -->
+        <button onclick="goToStripe()">Donate Now</button>
+    </div>
+
+    <script>
+        let selectedAmount = null;
+
+        function setAmount(amount) {
+            selectedAmount = amount;
+            document.getElementById('customAmount').value = "";
+        }
+
+        function goToStripe() {
+            const custom = document.getElementById('customAmount').value;
+            const amount = custom ? custom : selectedAmount;
+
+            if (!amount) {
+                alert("Please select or enter a donation amount.");
+                return;
+            }
+
+            // Replace this with your actual Stripe Payment Link
+            const stripeLink = "https://buy.stripe.com/your_payment_link_here";
+
+            window.location.href = stripeLink;
+        }
+    </script>
+
+    <div class="policy-section">
+        <h2>Refund Policy</h2>
+        <p>Donations are generally non‑refundable. If a donation was made in error, please contact us within 7 days at <strong>tehiloisyisroel@gmail.com</strong>.</p>
+
+        <h2>Privacy Policy</h2>
+        <p>Your information is used only to process your donation. Payments are handled securely by Stripe. We do not store card details or share your information with third parties.</p>
+
+        <h2>Contact</h2>
+        <p>Tehilos Yisroel<br>
+        Belgielei 131, 2018 Antwerpen, Belgium<br>
+        Email: <strong>tehiloisyisroel@gmail.com</strong></p>
+    </div>
+
+</div>
+
+<footer>
+    TEHILOS YISROEL VZW<br>
+BE46363263218836
+</footer>
+
+</body>
+</html>
