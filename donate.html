@@ -120,9 +120,8 @@
     <p>Your donation helps sustain our kehilla, our tefillos, our learning, and the warm community we are building together.</p>
 
     <h2>Choose a Donation Amount</h2>
-
-    <div class="donation-buttons">
-        <button onclick="setAmount(18)">€18</button>
+	    <div class="donation-buttons">
+       	<button onclick="setAmount(18)">€18</button>
         <button onclick="setAmount(36)">€36</button>
         <button onclick="setAmount(72)">€72</button>
         <button onclick="setAmount(180)">€180</button>
@@ -158,7 +157,7 @@
             }
 
             // Replace this with your actual Stripe Payment Link
-            const stripeLink = "https://buy.stripe.com/your_payment_link_here";
+            const stripeLink = "https://buy.stripe.com/14AcN55aDaXx90Neh8fIs00";
 
             window.location.href = stripeLink;
         }
@@ -183,6 +182,30 @@
     TEHILOS YISROEL VZW<br>
 BE46363263218836
 </footer>
+	<script>
+    let selectedAmount = null;
 
+    function setAmount(amount) {
+        selectedAmount = amount;
+
+        // Put the amount into the custom input field
+        document.getElementById("customAmount").value = amount;
+    }
+
+    // If the user types manually, override the preset
+    document.getElementById("customAmount").addEventListener("input", function () {
+        selectedAmount = this.value;
+    });
+
+    function goToStripe() {
+        if (!selectedAmount || selectedAmount < 1) {
+            alert("Please choose or enter a donation amount.");
+            return;
+        }
+
+        const stripeLink = "https://donate.stripe.com/14AcN55aDaXx90Neh8fIs00" + selectedAmount;
+        window.location.href = stripeLink;
+    }
+</script>
 </body>
 </html>
