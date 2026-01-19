@@ -115,7 +115,94 @@
             color: #2980b9;
             text-decoration: none;
         }
-    </style>
+  /* Card-style two-column layout */
+.content-row {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap; /* enables mobile stacking */
+}
+
+/* Card design */
+.section {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e6e6e6;
+}
+
+/* Section titles */
+.section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2c3e50;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+/* Hebrew styling for About section */
+.about {
+    direction: rtl;
+    text-align: right;
+    font-family: "BaTzelotana", serif;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* Contact section styling */
+.contact {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* Icons */
+.icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+/* Contact links */
+.contact a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .section {
+        min-width: 100%;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+}
+
+.section p {
+    text-align: center;
+}
+
+
+
+</style>
 </head>
 <body>
 <div class="banner"></div>
@@ -128,37 +215,25 @@
 
 <div class="content-row">
 
-    <!-- RIGHT SIDE: ABOUT -->
     <div class="section about">
-        <h2 ondblclick="toggleAbout()">About Us</h2>
-        <p id="aboutText" style="display:none;">
+        <h2>About Us</h2>
+        <p>
             Tehalos Yisroel is a warm and welcoming synagogue dedicated to Torah, prayer, and community.
             We strive to create a respectful and uplifting environment for all who join us.
         </p>
     </div>
 
-    <!-- LEFT SIDE: CONTACT -->
     <div class="section contact">
-        <h2 ondblclick="toggleContact()">Contact</h2>
-        <p id="contactText" style="display:none;">
-            Email: <a href="mailto:tehilisyisroel@gmail.com">tehilisyisroel@gmail.com</a>
+        <h2>Contact</h2>
+        <p>
+            Email: <a href="mailto:tehiloisyisroel@gmail.com">tehilisyisroel@gmail.com</a><br>
+            Address: Belgielei 131, 2018 Antwerpen, Belgium
         </p>
     </div>
 
 </div>
 
-<script>
-function toggleAbout() {
-    const text = document.getElementById("aboutText");
-    text.style.display = (text.style.display === "none") ? "block" : "none";
-}
-
-function toggleContact() {
-    const text = document.getElementById("contactText");
-    text.style.display = (text.style.display === "none") ? "block" : "none";
-}
-</script>
+</div>
 
 </body>
-
 </html>
