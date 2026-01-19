@@ -85,6 +85,8 @@
         }
         .donate-now {
             margin-top: 20px;
+	text-align: center;
+
         }
         .donate-now button {
             padding: 14px 28px;
@@ -94,6 +96,9 @@
             color: white;
             font-size: 18px;
             cursor: pointer;
+	    justify-content: center;
+ 	margin: 0 auto;
+	
         }
         .donate-now button:hover {
             background: #218838;
@@ -119,50 +124,13 @@
     <h1>Support Tehilos Yisroel</h1>
     <p>Your donation helps sustain our kehilla, our tefillos, our learning, and the warm community we are building together.</p>
 
-    <h2>Choose a Donation Amount</h2>
-	    <div class="donation-buttons">
-       	<button onclick="setAmount(18)">€18</button>
-        <button onclick="setAmount(36)">€36</button>
-        <button onclick="setAmount(72)">€72</button>
-        <button onclick="setAmount(180)">€180</button>
-        <button onclick="setAmount(360)">€360</button>
-        <button onclick="setAmount(500)">€500</button>
-    </div>
-
-    <div class="custom-amount">
-        <label>Or enter a custom amount:</label><br>
-        <input type="number" id="customAmount" min="1" placeholder="€">
-    </div>
-
-    <div class="donate-now">
+    
+        <div class="donate-now">
         <!-- Replace the link below with your Stripe Checkout link -->
         <button onclick="goToStripe()">Donate Now</button>
     </div>
 
-    <script>
-        let selectedAmount = null;
-
-        function setAmount(amount) {
-            selectedAmount = amount;
-            document.getElementById('customAmount').value = "";
-        }
-
-        function goToStripe() {
-            const custom = document.getElementById('customAmount').value;
-            const amount = custom ? custom : selectedAmount;
-
-            if (!amount) {
-                alert("Please select or enter a donation amount.");
-                return;
-            }
-
-            // Replace this with your actual Stripe Payment Link
-            const stripeLink = "https://buy.stripe.com/14AcN55aDaXx90Neh8fIs00";
-
-            window.location.href = stripeLink;
-        }
-    </script>
-
+   
     <div class="policy-section">
         <h2>Refund Policy</h2>
         <p>Donations are generally non‑refundable. If a donation was made in error, please contact us within 7 days at <strong>tehiloisyisroel@gmail.com</strong>.</p>
@@ -183,27 +151,8 @@
 BE46363263218836
 </footer>
 	<script>
-    let selectedAmount = null;
-
-    function setAmount(amount) {
-        selectedAmount = amount;
-
-        // Put the amount into the custom input field
-        document.getElementById("customAmount").value = amount;
-    }
-
-    // If the user types manually, override the preset
-    document.getElementById("customAmount").addEventListener("input", function () {
-        selectedAmount = this.value;
-    });
-
     function goToStripe() {
-        if (!selectedAmount || selectedAmount < 1) {
-            alert("Please choose or enter a donation amount.");
-            return;
-        }
-
-        const stripeLink = "https://donate.stripe.com/14AcN55aDaXx90Neh8fIs00" + selectedAmount;
+        const stripeLink = "https://donate.stripe.com/14AcN55aDaXx90Neh8fIs00";
         window.location.href = stripeLink;
     }
 </script>
