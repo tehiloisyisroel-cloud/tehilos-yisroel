@@ -49,6 +49,8 @@ h1, h2, h3 {
     height: 70px;
 }
 
+
+
 /* LOGO */
 .logo-link img {
     height: 160px;
@@ -276,15 +278,21 @@ function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("open");
 }
 
-window.addEventListener("scroll", function() {
-  const header = document.querySelector(".gader-header");
-  if (window.scrollY > 30) {
-    header.classList.add("shrink");
-  } else {
-    header.classList.remove("shrink");
-  }
-});
-function goToStripe() {
+let isShrunk = false;
+
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.gader-header');
+
+    if (!isShrunk && window.scrollY > 80) {
+        header.classList.add('shrink');
+        isShrunk = true;
+    }
+
+    if (isShrunk && window.scrollY < 20) {
+        header.classList.remove('shrink');
+        isShrunk = false;
+    }
+});function goToStripe() {
     window.location.href = "https://donate.stripe.com/14AcN55aDaXx90Neh8fIs00";
 }
 function toggleMenu() {
